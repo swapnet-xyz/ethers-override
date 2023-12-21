@@ -1,0 +1,39 @@
+{
+  "name": "@swapnet/protocol",
+  "private": true,
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "build": "tsdx build",
+    "watch": "tsdx watch",
+    "test": "jest"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "ethers": "^6.7.0",
+    "graph-data-structure": "^3.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.10",
+    "@babel/preset-env": "^7.22.10",
+    "@babel/preset-typescript": "^7.22.5",
+    "@types/jest": "^25.2.3",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "babel-jest": "^29.6.2",
+    "eslint": "^8.45.0",
+    "jest": "^25.5.0",
+    "tsdx": "^0.14.1",
+    "typescript": "^5.0.2"
+  },
+  "browserslist": [
+    "chrome 52",
+    "node 7",
+    "edge 14"
+  ]
+}
