@@ -6,7 +6,7 @@ import { mergeDeep } from "./utils";
 
 
 export class LedgerState {
-    public static from(blockTag: BlockTag): LedgerState {
+    public static from(blockTag: BlockTag | undefined = undefined): LedgerState {
         return new LedgerState(blockTag);
     }
 
@@ -15,7 +15,7 @@ export class LedgerState {
     private readonly _blockTag: BlockTag | undefined;
     private readonly _asIfs: AddressAsIf [] = [];
 
-    public constructor(blockTag: BlockTag | undefined) {
+    public constructor(blockTag: BlockTag | undefined = undefined) {
         this._blockTag = blockTag
     }
 
@@ -28,7 +28,7 @@ export class LedgerState {
         if (this._blockTag === undefined) {
             throw new Error(`Failed to call LedgerState.state() as blockTag is not set!`);
         }
-        const override = await this.getDiffAsync();
+        const override = await this.getOverrideAsync();
         return [this._blockTag, override];
     }
 
@@ -40,7 +40,7 @@ export class LedgerState {
         return this._blockTag;
     }
 
-    public async getDiffAsync(): Promise<EthCallOverride> {
+    public async getOverrideAsync(): Promise<EthCallOverride> {
         const asIfValues = await Promise.all(this._asIfs.map(asIf => asIf.valueAsync()));
 
         let override: EthCallOverride = {};
