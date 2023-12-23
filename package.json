@@ -13,9 +13,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "dotenv": "^16.3.1",
-    "ethers": "^6.7.0",
-    "graph-data-structure": "^3.3.0"
+    "ethers": "^6.7.0"
   },
   "devDependencies": {
     "@babel/core": "^7.22.10",
