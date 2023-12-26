@@ -1,6 +1,6 @@
 {
   "name": "ethers-override",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
@@ -10,6 +10,15 @@
     "type": "git",
     "url": "git+https://github.com/swapnet-xyz/ethers-override.git"
   },
+  "license": "MIT",
+  "keywords": [
+    "ethers",
+    "eth_call",
+    "override",
+    "evm",
+    "smart contract"
+  ],
+  "homepage": "https://github.com/swapnet-xyz/ethers-override#readme",
   "scripts": {
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "build": "tsdx build",
