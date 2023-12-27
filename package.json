@@ -23,7 +23,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "build": "tsdx build",
     "watch": "tsdx watch",
-    "clean": "rm -r node_modules dist",
+    "clean": "rm -rf node_modules dist",
     "test": "jest"
   },
   "dependencies": {
