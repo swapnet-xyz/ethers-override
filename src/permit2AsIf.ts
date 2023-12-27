@@ -1,6 +1,6 @@
 
 import { keccak256, solidityPacked, toBeHex, zeroPadValue } from "ethers";
-import { AddressAsIf } from "./addressAsIf";
+import { AddressAsIf } from "./addressAsIf.js";
 
 // import { abi as permit2Abi } from '../abi/permit2.json'
 // const permit2Interface: Interface = new Interface(permit2Abi);

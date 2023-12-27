@@ -1,19 +1,15 @@
 {
-  "compilerOptions": {
-    "target": "ES2020",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "strict": true,
-    "esModuleInterop": true,
-    "strictPropertyInitialization": false,
-    "resolveJsonModule": true,
-    "outDir": "dist",
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "lib": ["esnext.string", "DOM"],
-    "typeRoots": ["./typechain", "./node_modules/@types"],
-    "types": ["node", "jest"]
-  },
-  "include": ["src", "test"]
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "ESNext",
+        "moduleResolution": "Bundler",
+        "outDir": "dist",
+        "baseUrl": ".",
+        "strict": true,
+        "declaration": true,
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "rootDir": "src"
+    },
+    "include": ["src"]
 }
-  

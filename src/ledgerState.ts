@@ -1,8 +1,8 @@
 
 import { BlockTag } from "ethers"
-import { EthCallOverride } from "./types";
-import { AddressAsIf } from "./addressAsIf";
-import { mergeDeep } from "./utils";
+import { EthCallOverride } from "./types.js";
+import { AddressAsIf } from "./addressAsIf.js";
+import { mergeDeep } from "./utils.js";
 
 
 export class LedgerState {

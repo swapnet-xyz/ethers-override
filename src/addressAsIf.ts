@@ -1,5 +1,5 @@
 
-import { EthCallOverride } from "./types";
+import { EthCallOverride } from "./types.js";
 
 export class AddressAsIf {
     protected _field: "balance" | "nonce" | "code" | "stateDiff" | "state" | undefined = undefined;

@@ -1,12 +1,12 @@
 
-import { Interface, JsonRpcApiProvider, keccak256, solidityPacked, toBeHex, zeroPadValue } from "ethers";
-import { AddressAsIf } from "./addressAsIf";
-import { Access } from "./types";
-import { abi as erc20Abi } from '../abi/erc20.json'
+import { Interface, JsonRpcProvider, keccak256, solidityPacked, toBeHex, zeroPadValue } from "ethers";
+import { AddressAsIf } from "./addressAsIf.js";
+import { Access } from "./types.js";
+import erc20Abis from "./abi/erc20.json" assert { type: "json" };
 
-const erc20Interface: Interface = new Interface(erc20Abi);
+const erc20Interface: Interface = new Interface(erc20Abis.abi);
 
-const findSlotKeyInternal = async (toAddress: string, data: string, provider: JsonRpcApiProvider): Promise<string []> => {
+const findSlotKeyInternal = async (toAddress: string, data: string, provider: JsonRpcProvider): Promise<string []> => {
 
     const params = [{
         to: toAddress,
@@ -46,13 +46,13 @@ const allowanceSlotNumberByToken: Map<string, number> = new Map();
 
 export class TokenAsIf extends AddressAsIf {
     private _method: "balanceOf" | "allowance" | undefined = undefined;
-    private _provider: JsonRpcApiProvider | undefined = undefined;
+    private _provider: JsonRpcProvider | undefined = undefined;
 
     public constructor(address: string) {
         super(address);
     }
 
-    public connect(provider: JsonRpcApiProvider): TokenAsIf {
+    public connect(provider: JsonRpcProvider): TokenAsIf {
         this._provider = provider;
         return this;
     }
