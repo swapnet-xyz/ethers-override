@@ -19,7 +19,7 @@
   "homepage": "https://github.com/swapnet-xyz/ethers-override#readme",
   "scripts": {
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "build": "pnpm build-esm",
+    "build": "yarn build-esm",
     "clean": "rm -rf node_modules dist",
     "test": "jest",
     "build-esm": "tsc"
@@ -41,5 +41,5 @@
     "edge 14"
   ],
   "main": "./dist/index.js",
-  "type":"module"
+  "type": "module"
 }
