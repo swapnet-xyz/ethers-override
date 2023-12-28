@@ -1,0 +1,27 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "start:esm": "node dist/index.js",
+    "start:commonjs": "node dist/index.cjs",
+    "clean": "rm -rf node_modules dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ethers": "^6.9.1",
+    "ethers-override": "file:../.."
+  },
+  "devDependencies": {
+    "@tsconfig/node18": "^18.2.2",
+    "@types/node": "^20.10.5",
+    "typescript": "^5.0.2"
+  },
+  "type": "module"
+}
