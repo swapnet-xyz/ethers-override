@@ -16,7 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "ethers": "^6.9.1",
-    "ethers-override": "file:../.."
+    "ethers-override": "0.0.4"
   },
   "devDependencies": {
     "@tsconfig/node18": "^18.2.2",
