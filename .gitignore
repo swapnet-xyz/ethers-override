@@ -23,3 +23,4 @@ src/examples
 *.njsproj
 *.sln
 *.sw?
+examples/yarn.lock
