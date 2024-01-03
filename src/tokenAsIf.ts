@@ -1,12 +1,12 @@
 
 import { Interface, JsonRpcProvider, keccak256, solidityPacked, toBeHex, zeroPadValue } from "ethers";
 import { AddressAsIf } from "./addressAsIf.js";
-import { Access } from "./types.js";
-import erc20Abis from "./abi/erc20.json" assert { type: "json" };
+import type { Access } from "./types.js";
+import erc20Abis from "./abi/erc20.json" with { type: "json" };
 
 const erc20Interface: Interface = new Interface(erc20Abis.abi);
 
-const findSlotKeyInternal = async (toAddress: string, data: string, provider: JsonRpcProvider): Promise<string []> => {
+const findSlotKeyInternal = async (toAddress: string, data: string, provider: JsonRpcProvider): Promise<string[]> => {
 
     const params = [{
         to: toAddress,
@@ -18,7 +18,7 @@ const findSlotKeyInternal = async (toAddress: string, data: string, provider: Js
     const res = await provider.send("eth_createAccessList", params);
     // console.log(JSON.stringify(res, null, 2));
 
-    const access = (res.accessList as Access []).find(a => a.address.toLowerCase() === toAddress.toLowerCase());
+    const access = (res.accessList as Access[]).find(a => a.address.toLowerCase() === toAddress.toLowerCase());
     if (access === undefined || access.storageKeys === undefined) {
         throw new Error(`Failed to get slot keys for address ${toAddress} with calldata: ${data}.`);
     }
@@ -69,18 +69,18 @@ export class TokenAsIf extends AddressAsIf {
             }
 
             const promise = findSlotKeyInternal(this.address, calldata, this._provider)
-            .then(visitedSlotKeys => {
-                for (let mappingSlotNumber = 0; mappingSlotNumber < 20; mappingSlotNumber++) {
-                    const key = getBalanceOfSlotKey(ownerAddress, mappingSlotNumber);
-                    const slotKey = visitedSlotKeys.find(vk => vk === key);
-                    if (slotKey !== undefined) {
-                        // console.log(`slotNumber: ${mappingSlotNumber}`);
-                        balanceOfSlotNumberByToken.set(this.address, mappingSlotNumber);
-                        super.stateDiff(slotKey);
-                        break;
+                .then(visitedSlotKeys => {
+                    for (let mappingSlotNumber = 0; mappingSlotNumber < 20; mappingSlotNumber++) {
+                        const key = getBalanceOfSlotKey(ownerAddress, mappingSlotNumber);
+                        const slotKey = visitedSlotKeys.find(vk => vk === key);
+                        if (slotKey !== undefined) {
+                            // console.log(`slotNumber: ${mappingSlotNumber}`);
+                            balanceOfSlotNumberByToken.set(this.address, mappingSlotNumber);
+                            super.stateDiff(slotKey);
+                            break;
+                        }
                     }
-                }
-            });
+                });
 
             this._registeredPromises.push(promise);
         }
@@ -103,18 +103,18 @@ export class TokenAsIf extends AddressAsIf {
             }
 
             const promise = findSlotKeyInternal(this.address, calldata, this._provider)
-            .then(visitedSlotKeys => {
-                for (let mappingSlotNumber = 0; mappingSlotNumber < 20; mappingSlotNumber++) {
-                    const key = getAllowanceSlotKey(ownerAddress, spenderAddress, mappingSlotNumber);
-                    const slotKey = visitedSlotKeys.find(vk => vk === key);
-                    if (slotKey !== undefined) {
-                        // console.log(`slotNumber: ${mappingSlotNumber}`);
-                        allowanceSlotNumberByToken.set(this.address, mappingSlotNumber);
-                        super.stateDiff(slotKey);
-                        break;
+                .then(visitedSlotKeys => {
+                    for (let mappingSlotNumber = 0; mappingSlotNumber < 20; mappingSlotNumber++) {
+                        const key = getAllowanceSlotKey(ownerAddress, spenderAddress, mappingSlotNumber);
+                        const slotKey = visitedSlotKeys.find(vk => vk === key);
+                        if (slotKey !== undefined) {
+                            // console.log(`slotNumber: ${mappingSlotNumber}`);
+                            allowanceSlotNumberByToken.set(this.address, mappingSlotNumber);
+                            super.stateDiff(slotKey);
+                            break;
+                        }
                     }
-                }
-            });
+                });
 
             this._registeredPromises.push(promise);
         }
@@ -134,7 +134,7 @@ export class TokenAsIf extends AddressAsIf {
             if (typeof value !== 'bigint') {
                 throw new Error(`Invalid value for ${this._method} of AsIf at ${this.address}.`)
             }
-            const slotValue = solidityPacked([ "uint256" ], [ value ]);
+            const slotValue = solidityPacked(["uint256"], [value]);
             super.is(slotValue);
         }
 

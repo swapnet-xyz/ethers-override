@@ -1,5 +1,6 @@
 export { LedgerState } from './ledgerState.js'
 export { addressAt, AddressAsIf } from './addressAsIf.js'
 export { tokenAt, TokenAsIf } from './tokenAsIf.js'
-export { Permit2AllowanceValue, Permit2AsIf, permit2, } from './permit2AsIf.js'
+export { Permit2AsIf, permit2 } from './permit2AsIf.js'
+export type { Permit2AllowanceValue } from './permit2AsIf.js'
 // export * from './utils'

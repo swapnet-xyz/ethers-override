@@ -19,7 +19,6 @@
     "ethers-override": "^0.0.4"
   },
   "devDependencies": {
-    "@tsconfig/node18": "^18.2.2",
     "@types/node": "^20.10.5",
     "typescript": "^5.0.2"
   },

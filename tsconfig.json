@@ -1,11 +1,12 @@
 {
     "compilerOptions": {
+        "module": "NodeNext",
         "target": "ES2020",
-        "module": "ESNext",
-        "moduleResolution": "Bundler",
+        "moduleResolution": "nodenext",
         "outDir": "dist",
         "baseUrl": ".",
         "strict": true,
+        "verbatimModuleSyntax": true,
         "declaration": true,
         "esModuleInterop": true,
         "resolveJsonModule": true,
