@@ -2,10 +2,7 @@
   "compilerOptions": {
     "module": "nodenext",
     "target": "esnext",
-    "outDir": "dist",
-    "moduleResolution": "nodenext",
-    "esModuleInterop": true,
-    "verbatimModuleSyntax": true
+    "outDir": "dist"
   },
   "include": [
     "."
