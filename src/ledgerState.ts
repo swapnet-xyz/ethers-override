@@ -1,6 +1,6 @@
 
-import { BlockTag } from "ethers"
-import { EthCallOverride } from "./types.js";
+import type { BlockTag } from "ethers";
+import type { EthCallOverride } from "./types.js";
 import { AddressAsIf } from "./addressAsIf.js";
 import { mergeDeep } from "./utils.js";
 
@@ -13,7 +13,7 @@ export class LedgerState {
     public static original: LedgerState = new LedgerState(undefined);
 
     private readonly _blockTag: BlockTag | undefined;
-    private readonly _asIfs: AddressAsIf [] = [];
+    private readonly _asIfs: AddressAsIf[] = [];
 
     public constructor(blockTag: BlockTag | undefined = undefined) {
         this._blockTag = blockTag
@@ -24,7 +24,7 @@ export class LedgerState {
         return this;
     }
 
-    public async getStateAsync(): Promise<[ BlockTag, EthCallOverride]> {
+    public async getStateAsync(): Promise<[BlockTag, EthCallOverride]> {
         if (this._blockTag === undefined) {
             throw new Error(`Failed to call LedgerState.state() as blockTag is not set!`);
         }

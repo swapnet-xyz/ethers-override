@@ -1,5 +1,5 @@
 
-import { EthCallOverride } from "./types.js";
+import type { EthCallOverride } from "./types.js";
 
 export class AddressAsIf {
     protected _field: "balance" | "nonce" | "code" | "stateDiff" | "state" | undefined = undefined;
@@ -8,7 +8,7 @@ export class AddressAsIf {
 
     protected _registeredPromises: Array<Promise<void>> = [];
 
-    public constructor(public readonly address: string) {}
+    public constructor(public readonly address: string) { }
 
     public balance(): AddressAsIf {
         this._field = "balance";
