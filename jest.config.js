@@ -93,7 +93,7 @@ export default {
   // notifyMode: "failure-change",
 
   // A preset that is used as a base for Jest's configuration
-  preset: "ts-jest",
+  // preset: "ts-jest",
 
   // Run tests from one or more projects
   // projects: undefined,
@@ -172,15 +172,9 @@ export default {
   transform: {
     // '^.+\\.[tj]sx?$' to process js/ts with `ts-jest`
     // '^.+\\.m?[tj]sx?$' to process js/ts/mjs/mts with `ts-jest`
-    '^.+\\.ts?$': [
-      'ts-jest',
-      {
-        isolatedModules: true,
-        useESM: true,
-        tsconfig: { module: "NodeNext", moduleResolution: "NodeNext" }
-      },
-    ],
+    "^.+\\.[t|j]sx?$": "babel-jest"
   },
+  // transform: {}
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [
