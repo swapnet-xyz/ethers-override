@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.23.7",
+    "@babel/plugin-syntax-import-attributes": "^7.23.3",
     "@babel/preset-env": "^7.23.7",
     "@babel/preset-typescript": "^7.23.3",
     "@jest/globals": "^29.7.0",
