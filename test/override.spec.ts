@@ -1,7 +1,7 @@
 import { Interface, JsonRpcProvider, Network } from "ethers";
 // import erc20Abi from "../src/abi/erc20.json";
 import { LedgerState, tokenAt } from "../src/index";
-import { beforeEach, describe, expect, jest, test } from '@jest/globals';
+import { beforeEach, describe, expect, test } from '@jest/globals';
 
 const erc20Abi = `[{
       "constant": true,
@@ -32,14 +32,18 @@ const usdcTokenAddress = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48";
 describe("ethers-override", () => {
   const rpcUrl = "https://eth.meowrpc.com";   // Mainnet RPC URL
   const network = { chainId: 1, name: "unknown" };
+  let provider: JsonRpcProvider;
 
-  const provider = new JsonRpcProvider(
-    rpcUrl,
-    network,
-    {
-      staticNetwork: Network.from(network),
-    }
-  );
+
+  beforeEach(async () => {
+    provider = new JsonRpcProvider(
+      rpcUrl,
+      network,
+      {
+        staticNetwork: Network.from(network),
+      }
+    );
+  });
 
 
   describe("Ledger State", () => {
