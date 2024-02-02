@@ -6,10 +6,9 @@ describe("addressAsIf", () => {
   test("valueAsyncBalance", async () => {
     const address = "0x1231231231231231231231231231231231231231";
     const oldState = new AddressAsIf(address)
-    const newState = oldState.balance().is("1234500000n")
+    const newState = oldState.balance().is(1234500000n);
     const result = await newState.valueAsync();
-    expect(Object.keys(result)[0]).toBe(address);
-    expect(result.address.balance).toBe("1234500000n");
+    expect(result).toEqual({ [address]: { "balance": "1234500000" } });
   })
 
   test("valueAsyncStateDiff", async () => {
@@ -18,8 +17,7 @@ describe("addressAsIf", () => {
     const oldState = new AddressAsIf(address)
     const newState = oldState.stateDiff(slot).is("0xAbcdefghi")
     const result = await newState.valueAsync();
-    expect(Object.keys(result)[0]).toBe(address);
-    expect(result.address.stateDiff.slot).toBe("0xAbcdefghi");
+    expect(result).toEqual({ [address]: { "stateDiff": { [slot]: "0xAbcdefghi" } } });
   })
 
 })
