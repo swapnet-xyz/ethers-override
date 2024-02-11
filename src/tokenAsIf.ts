@@ -145,3 +145,7 @@ export class TokenAsIf extends AddressAsIf {
 export const tokenAt = (address: string): TokenAsIf => {
     return new TokenAsIf(address);
 };
+
+export const exportedForTesting = {
+    getBalanceOfSlotKey, getAllowanceSlotKey
+}
