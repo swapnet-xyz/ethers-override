@@ -52,7 +52,7 @@ export class Permit2AsIf extends AddressAsIf {
             ) {
                 throw new Error(`Invalid value for ${this._method} of Permit2AsIf.`)
             }
-            const slotValue = solidityPacked(["uint48", "uint48", "uint160"], [ value.nonce, value.expiration, value.amount ]);
+            const slotValue = solidityPacked(["uint48", "uint48", "uint160"], [value.nonce, value.expiration, value.amount]);
             super.is(slotValue);
         }
 
@@ -63,3 +63,4 @@ export class Permit2AsIf extends AddressAsIf {
 const PERMIT2_ADDRESS = "0x000000000022d473030f116ddee9f6b43ac78ba3";
 
 export const permit2: Permit2AsIf = new Permit2AsIf(PERMIT2_ADDRESS);
+export const exportedForTesting = { getAllowanceSlotKey };
