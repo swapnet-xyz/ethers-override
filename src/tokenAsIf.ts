@@ -2,9 +2,9 @@
 import { Interface, JsonRpcProvider, keccak256, solidityPacked, toBeHex, zeroPadValue } from "ethers";
 import { AddressAsIf } from "./addressAsIf.js";
 import type { Access } from "./types.js";
-import erc20Abis from "./abi/erc20.json" with { type: "json" };
+import erc20Abi from "./abi/erc20.json" with { type: "json" };
 
-const erc20Interface: Interface = new Interface(erc20Abis.abi);
+const erc20Interface: Interface = new Interface(erc20Abi);
 
 const findSlotKeyInternal = async (toAddress: string, data: string, provider: JsonRpcProvider): Promise<string[]> => {
 
