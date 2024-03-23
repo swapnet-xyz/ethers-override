@@ -14,7 +14,7 @@ const provider = new JsonRpcProvider(
   }
 );
 const senderAddress: string = "0x1231DEB6f5749EF6cE6943a275A1D3E7486F4EaE";
-const routerAddress = "0x1111111254EEB25477B68fb85Ed929f73A960582";
+const routerAddress = "0x1111111254EEB25477B68fb85Ed929f73A960582";   // 1inch v5 address
 
 
 async function queryAsync(sellToken: string, buyToken: string, sellAmount: bigint, verb: 'quote' | 'swap' = 'quote'): Promise<{ calldata: string, expectedBuyAmount: bigint }> {
@@ -24,7 +24,7 @@ async function queryAsync(sellToken: string, buyToken: string, sellAmount: bigin
     baseURL: "https://api.1inch.dev",
     headers: {
       accept: 'application/json',
-      Authorization: `Bearer 1Z8RiktWGxWoR6HBdGn78TLsbqCTr5GC`
+      Authorization: `Bearer [1inch-API-KEY]` // Placeholder. Use your API key
     },
     params: {
       src: sellToken,
